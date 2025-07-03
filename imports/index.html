@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Imports - Solderix Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Imports";
+        var mkdocs_page_input_path = "imports.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Solderix Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Imports</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#oled">OLED</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#poweroff">poweroff</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#contrast">contrast</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#invert">invert</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#show">show</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#fill">fill</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pixel">pixel</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#text">text</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bitmap">bitmap</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#line">line</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rect">rect</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#circle">circle</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#proximity">Proximity</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#lux">lux</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#detect">detect</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#servo">Servo</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#definitions">Definitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#turn">turn</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expander">Expander</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#select">select</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gpio">GPIO</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#definitions_1">Definitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mode">mode</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read">read</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#write">write</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ultrasonic">Ultrasonic</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#distance">distance</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#follower">Follower</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#read_1">read</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#controller">Controller</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#definitions_2">Definitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_input">read_input</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_all_inputs">read_all_inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_encoded">read_encoded</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data_decode">data_decode</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#srt">SRT</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#definitions_3">Definitions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_all_inputs_1">read_all_inputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#read_encoded_1">read_encoded</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#data_decode_1">data_decode</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#vehicle">Vehicle</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#globals">Globals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#move">move</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#set_outputs">set_outputs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#horn">horn</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OLED_Example/">OLED Display Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PWM_Example/">PWM Module Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Controller_Example/">Controller Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mainboard_Example/">Mainboard Examples</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Solderix Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Imports</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="imports">Imports</h1>
+<p>This section contains all imports made by Solderix and goes through every function each module has.</p>
+<h2 id="oled">OLED</h2>
+<p>The OLED is a monochromatic display with dimensions of 128×64. To interface with it, a Solderix Adapter board is required.</p>
+<p>When calling <code>import oled</code> the display will automatically configure itself and turn on.</p>
+<h3 id="poweroff">poweroff</h3>
+<p><strong>Definiton</strong>
+- <code>poweroff() -&gt; None</code></p>
+<p><strong>Description</strong>
+- Powers off the display.</p>
+<p><strong>Parameters</strong>
+- None</p>
+<p><strong>Returns</strong>
+- None </p>
+<hr />
+<h3 id="contrast">contrast</h3>
+<p><strong>Definiton</strong>
+- <code>contrast(contrast) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Changes the pixel contrast.</p>
+<p><strong>Parameters</strong>
+- <code>contrast</code> (byte): amount of contrast.</p>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="invert">invert</h3>
+<p><strong>Definiton</strong>
+- <code>invert(invert) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Inverts or reverts pixels on the display.</p>
+<p><strong>Parameters</strong>
+- <code>invert</code> (byte): 0 is non inverted, 1 is inverted.</p>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="show">show</h3>
+<p><strong>Definiton</strong>
+- <code>show() -&gt; None</code></p>
+<p><strong>Description</strong>
+- When writing to the display, pixels are first stored in an internal buffer. This avoids flickering caused by writing directly to the display. The entire buffer is then sent as one image. This function pushes that image to the display.</p>
+<pre><code>from microbit import *
+import oled
+
+oled.text(&quot;test&quot;,0,0) # will not be displayed
+oled.line(0,0, 128,64) # will not be displayed
+oled.show() # after this text and line will be displayed
+</code></pre>
+<p><strong>Parameters</strong>
+- None</p>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="fill">fill</h3>
+<p><strong>Definiton</strong>
+- <code>fill(col) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Fills the entire screen with a colour.</p>
+<p><strong>Parameters</strong>
+- <code>col</code> (byte): 0 is no colour, 1 is colour on.</p>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="pixel">pixel</h3>
+<p><strong>Definiton</strong>
+- <code>pixel(x,y,col) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a pixel at the given coordinates.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>x</code> (int): width coordinate.</li>
+<li><code>y</code> (int): height coordinate.</li>
+<li><code>col</code> (int): 0 is colour off, 1 is colour on.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="text">text</h3>
+<p><strong>Definiton</strong>
+- <code>text(string,x,y,col) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a string to the display.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>string</code> (string): string to be drawn.</li>
+<li><code>x</code> (int): width coordinate.</li>
+<li><code>y</code> (int): height coordinate.</li>
+<li><code>col</code> (int): 0 is colour off, 1 is colour on.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="bitmap">bitmap</h3>
+<p><strong>Definiton</strong>
+- <code>bitmap(buf,x,y,w,h) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a bitmap to the display. The bitmap is blitted, so when creating a custom bitmap, make sure to adhere to the padding standards.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>buf</code> (list): buffer that contains the bitmap.</li>
+<li><code>x</code> (int): width coordinate.</li>
+<li><code>y</code> (int): height coordinate.</li>
+<li><code>w</code> (int): width.</li>
+<li><code>h</code> (int): height.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="line">line</h3>
+<p><strong>Definiton</strong>
+- <code>line(x1, y1, x2, y2, c) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a line to the display.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>x1</code> (int): width coordinate for line start.</li>
+<li><code>y1</code> (int): heigth coordinate for line start.</li>
+<li><code>x2</code> (int): width coordinate for line end.</li>
+<li><code>y2</code> (int): height coordinate for line end.</li>
+<li><code>c</code> (int): 0 is colour off, 1 is colour on.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="rect">rect</h3>
+<p><strong>Definiton</strong>
+- <code>rect(x,y,w,h,c,f) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a rectangle to the display.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>x</code> (int): width coordinate for rectangle start.</li>
+<li><code>y</code> (int): height coordinate for rectangle start.</li>
+<li><code>w</code> (int): rectangle width.</li>
+<li><code>h</code> (int): rectangle height.</li>
+<li><code>c</code> (int): 0 is colour off, 1 is colour on.</li>
+<li><code>f</code> (bool): 0 will keep the rectangle empty, 1 will fill the rectangle</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<hr />
+<h3 id="circle">circle</h3>
+<p><strong>Definiton</strong>
+- <code>circle(x,y,r,c,f) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Draws a circle to the display.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>x</code> (int): width coordinate for circle start.</li>
+<li><code>y</code> (int): height coordinate for circle start.</li>
+<li><code>r</code> (int): circle radius.</li>
+<li><code>c</code> (int): 0 is colour off, 1 is colour on.</li>
+<li><code>f</code> (bool): 0 will keep the circle empty, 1 will fill the circle.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<hr />
+<h2 id="proximity">Proximity</h2>
+<p>Sensor used to measure light intensity in lux and approximate object distance at short range.</p>
+<h3 id="lux">lux</h3>
+<p><strong>Definiton</strong>
+- <code>lux() -&gt; float</code></p>
+<p><strong>Description</strong>
+- Function that returns ambient light measurment.</p>
+<p><strong>Parameters:</strong>
+- None</p>
+<p><strong>Returns</strong>
+- Ambient light in lux. Returns None if no measurement was made.</p>
+<hr />
+<h3 id="detect">detect</h3>
+<p><strong>Definiton</strong>
+- <code>detect() -&gt; int</code></p>
+<p><strong>Description</strong>
+- Function used for object detection. The lower the return value, the farther the object. Since measurements can be inaccurate due to color effects, the return value represents intensity rather than exact distance.</p>
+<p><strong>Parameters:</strong>
+- None</p>
+<p><strong>Returns</strong>
+- Detected distance intensity.</p>
+<hr />
+<hr />
+<h2 id="servo">Servo</h2>
+<p>Used for controlling the motherboard servo as well as the servo add-on.</p>
+<p>When calling <code>import servo</code> the module will automatically configure itself and turn on.</p>
+<h3 id="definitions">Definitions</h3>
+<p>The module has two definitions, each corresponding to a servo pin on the Solderix Motherboard.</p>
+<ul>
+<li><code>front</code> (pin): Servo on the front of the motherboard.</li>
+<li><code>back</code> (pin): Servo on the back of the motherboard.</li>
+</ul>
+<p>Example:</p>
+<pre><code>from microbit import *
+import servo
+
+for deg in range(180):
+    servo.turn(servo.front, deg, True)
+</code></pre>
+<hr />
+<h3 id="turn">turn</h3>
+<p><strong>Definiton</strong>
+- <code>turn(servo, value, convert=True) -&gt; None</code></p>
+<p><strong>Description</strong></p>
+<p>Turns the servo to a desired position between 0 and 180 degrees.
+The range of the value parameter depends on the convert flag:</p>
+<p>If convert is <code>True</code>, value should be between 0 and 180, which is internally converted to a range of 90 to 500.</p>
+<p>If convert is <code>False</code>, value should already be in the range 90 to 500.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>servo</code> (int): servo to be set. Range goes from 0 to 15.</li>
+<li><code>value</code> (int): position of the servo.</li>
+<li><code>convert</code> (bool): sets conversion of the <code>value</code> parameter.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<hr />
+<h2 id="expander">Expander</h2>
+<p>Used to expand the QWIIC ports on the SolderBit.</p>
+<p>When calling <code>import expander</code> the module will automatically configure itself and turn on.</p>
+<h3 id="select">select</h3>
+<p><strong>Definiton</strong>
+- <code>select(channel) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Turns one QWIIC port into 4 seperate QWIIC buses.</p>
+<p><strong>Parameters:</strong>
+- <code>channel</code> (int): channel from 0 to 3.</p>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<hr />
+<h2 id="gpio">GPIO</h2>
+<p>Used for expanding the SolderBit inputs and outputs.</p>
+<h3 id="definitions_1">Definitions</h3>
+<p>The module has four definitions: two for pin configuration and two for output logic levels.</p>
+<ul>
+<li><code>INPUT</code> (int): sets pin as input.</li>
+<li><code>OUTPUT</code> (int): sets pin as output.</li>
+<li><code>LOW</code> (int): sets output low.</li>
+<li><code>HIGH</code> (int): sets output low high.</li>
+</ul>
+<h3 id="mode">mode</h3>
+<p><strong>Definiton</strong>
+- <code>mode(pin,mode) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Configures a pin as input or output. To set it, use the <code>INPUT</code> and <code>OUTPUT</code> definitions.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>pin</code> (int): Pin number from 0 to 15.</li>
+<li><code>mode</code> (int): IO mode (input/output).</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="read">read</h3>
+<p><strong>Definiton</strong>
+- <code>read(pin) -&gt; int</code></p>
+<p><strong>Description</strong>
+- If the pin is configured as an <code>INPUT</code>, it reads to logic level of the pin.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>pin</code> (int): Pin number from 0 to 15.</li>
+</ul>
+<p><strong>Returns</strong>
+- 0 for logic level low, and 1 for logic level high.</p>
+<hr />
+<h3 id="write">write</h3>
+<p><strong>Definiton</strong>
+- <code>read(pin,state) -&gt; None</code></p>
+<p><strong>Description</strong>
+- If the pin is configured as an <code>OUTPUT</code>, writes a logic level to the pin.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>pin</code> (int): Pin number from 0 to 15.</li>
+<li><code>state</code> (int): logic level. Use <code>LOW</code> and <code>HIGH</code> definitions.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<hr />
+<h2 id="ultrasonic">Ultrasonic</h2>
+<p>Ultrasonic.</p>
+<h3 id="distance">distance</h3>
+<p><strong>Definiton</strong>
+- <code>distance() -&gt; int</code></p>
+<p><strong>Description</strong>
+- Returns the distance to an object in centimetres.</p>
+<p><strong>Parameters</strong>
+- None</p>
+<p><strong>Returns</strong>
+- Returns the distance to an object in centimetres.</p>
+<hr />
+<hr />
+<h2 id="follower">Follower</h2>
+<p>Infrared line follower.</p>
+<h3 id="read_1">read</h3>
+<p><strong>Definiton</strong>
+- <code>read(channel) -&gt; int</code></p>
+<p><strong>Description</strong>
+- Reads the intensity from the infrared sensor on the selected channel.</p>
+<p><strong>Parameters</strong>
+- <code>channel</code> (int): channel to read ranging from 0 to 3.</p>
+<p><strong>Returns</strong>
+- Returns the IR intensity.</p>
+<hr />
+<hr />
+<h2 id="controller">Controller</h2>
+<p>Module for the Joystick PRO.</p>
+<h3 id="definitions_2">Definitions</h3>
+<p>Module has sixteen definitions, one for every input:</p>
+<ul>
+<li><code>JOY_X1</code> (int): left joystick input x.</li>
+<li><code>JOY_Y1</code> (int): left joystick input y.</li>
+<li><code>JOY_X2</code> (int): right joystick input x.</li>
+<li><code>JOY_Y2</code> (int): right joystick input y.</li>
+<li><code>JOY1_BTN</code> (int): left joystick button.</li>
+<li>
+<p><code>JOY2_BTN</code> (int): right joystick button.</p>
+</li>
+<li>
+<p><code>R1_BTN</code> (int): right side switch.</p>
+</li>
+<li>
+<p><code>L1_BTN</code> (int): left side switch.</p>
+</li>
+<li>
+<p><code>LEFT_UP_BTN</code> (int): left cluster upper button.</p>
+</li>
+<li><code>LEFT_DOWN_BTN</code> (int): left cluster lower button.</li>
+<li><code>LEFT_RIGHT_BTN</code> (int): left cluster right button.</li>
+<li>
+<p><code>LEFT_LEFT_BTN</code> (int): left cluster left button.</p>
+</li>
+<li>
+<p><code>RIGHT_UP_BTN</code> (int): right cluster upper button.</p>
+</li>
+<li><code>RIGHT_DOWN_BTN</code> (int): right cluster lower button.</li>
+<li><code>RIGHT_RIGHT_BTN</code> (int): right cluster right button.</li>
+<li><code>RIGHT_LEFT_BTN</code> (int): right cluster left button.</li>
+</ul>
+<h3 id="read_input">read_input</h3>
+<p><strong>Definiton</strong>
+- <code>read_input(input, offset=True) -&gt; int, bool</code></p>
+<p><strong>Description</strong>
+- Reads the specified input from the joystick.</p>
+<p><strong>Parameters</strong>
+- <code>input</code> (int): input to be read.
+- <code>offset</code> (bool): used for joystick center offestting. If set to true the rading will be offset to the center of the joystick.</p>
+<p><strong>Returns</strong>
+- Returns an integer if reading a joystick, and a bool if reading a button.</p>
+<hr />
+<h3 id="read_all_inputs">read_all_inputs</h3>
+<p><strong>Definiton</strong>
+- <code>read_all_inputs() -&gt; list</code></p>
+<p><strong>Description</strong>
+- This function reads all inputs and returns them as a list. The list can be accessed using the input definitions provided by the module.</p>
+<p><strong>Parameters</strong>
+- <code>input</code> (int): input to be read.
+- <code>offset</code> (bool): used for joystick center offestting. If set to true the rading will be offset to the center of the joystick.</p>
+<p><strong>Returns</strong>
+- Returns an integer if reading a joystick, and a bool if reading a button.</p>
+<hr />
+<h3 id="read_encoded">read_encoded</h3>
+<p><strong>Definiton</strong>
+- <code>read_encoded() -&gt; bytearray</code></p>
+<p><strong>Description</strong>
+- Reads all inputs and encodes them in a bytearray.</p>
+<p><strong>Parameters</strong>
+- None</p>
+<p><strong>Returns</strong>
+- Encoded bytearray.</p>
+<hr />
+<h3 id="data_decode">data_decode</h3>
+<p><strong>Definiton</strong>
+- <code>data_decode(data) -&gt; list</code></p>
+<p><strong>Description</strong>
+- Decodes an encoded bytearray.</p>
+<p><strong>Parameters</strong>
+- <code>data</code> (bytearray): data to be decoded.</p>
+<p><strong>Returns</strong>
+- Decoded data.</p>
+<hr />
+<hr />
+<h2 id="srt">SRT</h2>
+<p>Module for the Joystick SRT.</p>
+<h3 id="definitions_3">Definitions</h3>
+<p>Module has sixteen definitions, one for every input:</p>
+<ul>
+<li><code>JOY_X1</code> (int): left joystick input x.</li>
+<li><code>JOY_Y1</code> (int): left joystick input y.</li>
+<li><code>JOY_X2</code> (int): right joystick input x.</li>
+<li><code>JOY_Y2</code> (int): right joystick input y.</li>
+<li><code>JOY1_BTN</code> (int): left joystick button.</li>
+<li>
+<p><code>JOY2_BTN</code> (int): right joystick button.</p>
+</li>
+<li>
+<p><code>R1_BTN</code> (int): right side switch.</p>
+</li>
+<li>
+<p><code>L1_BTN</code> (int): left side switch.</p>
+</li>
+<li>
+<p><code>LEFT_UP_BTN</code> (int): left cluster upper button.</p>
+</li>
+<li><code>LEFT_DOWN_BTN</code> (int): left cluster lower button.</li>
+<li><code>LEFT_RIGHT_BTN</code> (int): left cluster right button.</li>
+<li>
+<p><code>LEFT_LEFT_BTN</code> (int): left cluster left button.</p>
+</li>
+<li>
+<p><code>RIGHT_UP_BTN</code> (int): right cluster upper button.</p>
+</li>
+<li><code>RIGHT_DOWN_BTN</code> (int): right cluster lower button.</li>
+<li><code>RIGHT_RIGHT_BTN</code> (int): right cluster right button.</li>
+<li><code>RIGHT_LEFT_BTN</code> (int): right cluster left button.</li>
+</ul>
+<h3 id="read_all_inputs_1">read_all_inputs</h3>
+<p><strong>Definiton</strong>
+- <code>read_all_inputs() -&gt; list</code></p>
+<p><strong>Description</strong>
+- This function reads all inputs and returns them as a list. The list can be accessed using the input definitions provided by the module.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>input</code> (int): input to be read.</li>
+<li><code>offset</code> (bool): used for joystick center offestting. If set to true the rading will be offset to the center of the joystick.</li>
+</ul>
+<p><strong>Returns</strong>
+- Returns an integer if reading a joystick, and a bool if reading a button.</p>
+<hr />
+<h3 id="read_encoded_1">read_encoded</h3>
+<p><strong>Definiton</strong>
+- <code>read_encoded() -&gt; bytearray</code></p>
+<p><strong>Description</strong>
+- Reads all inputs and encodes them in a bytearray.</p>
+<p><strong>Parameters</strong>
+- None</p>
+<p><strong>Returns</strong>
+- Encoded bytearray.</p>
+<hr />
+<h3 id="data_decode_1">data_decode</h3>
+<p><strong>Definiton</strong>
+- <code>data_decode(data) -&gt; list</code></p>
+<p><strong>Description</strong>
+- Decodes an encoded bytearray.</p>
+<p><strong>Parameters</strong>
+- <code>data</code> (bytearray): data to be decoded.</p>
+<p><strong>Returns</strong>
+- Decoded data.</p>
+<hr />
+<hr />
+<h2 id="vehicle">Vehicle</h2>
+<p>Module for vehicle controls.</p>
+<h3 id="globals">Globals</h3>
+<ul>
+<li><code>acceleration</code> (float): Sets the acceleration rate of the vehicle from 0.0 to 1.0 in increments of 0.01.</li>
+<li><code>speed</code> (float): Sets the speed rate of the vehicle from 0.0 to 1.0 in increments of 0.01.</li>
+</ul>
+<hr />
+<h3 id="move">move</h3>
+<p><strong>Definiton</strong>
+- <code>move(x,y,delay) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Reads the encoded bytearray and.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>x</code> (int): horizintal movement.</li>
+<li><code>y</code> (int): vertical movement.</li>
+<li><code>delay</code> (int): how long should the function block for.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="set_outputs">set_outputs</h3>
+<p><strong>Definiton</strong>
+- <code>set_outputs(connect, l6, l5, l4, l3, l2, l1, l0) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Sets the outputs on the mainboard.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><code>connect</code> (bool): connect LED.</li>
+<li><code>l6</code> (bool): pin 6.</li>
+<li><code>l5</code> (bool): pin 5.</li>
+<li><code>l4</code> (bool): pin 4.</li>
+<li><code>l3</code> (bool): pin 3.</li>
+<li><code>l2</code> (bool): pin 2.</li>
+<li><code>l1</code> (bool): pin 1.</li>
+<li><code>l0</code> (bool): pin 0.</li>
+</ul>
+<p><strong>Returns</strong>
+- None</p>
+<hr />
+<h3 id="horn">horn</h3>
+<p><strong>Definiton</strong>
+- <code>horn(on) -&gt; None</code></p>
+<p><strong>Description</strong>
+- Sets the outputs on the mainboard.</p>
+<p><strong>Parameters</strong>
+- <code>on</code> (bool): 0 turns the buzzer off, 1 turns the buzzer on.</p>
+<p><strong>Returns</strong>
+- None</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../OLED_Example/" class="btn btn-neutral float-right" title="OLED Display Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../OLED_Example/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

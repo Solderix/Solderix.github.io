@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Mainboard Examples - Solderix Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Mainboard Examples";
+        var mkdocs_page_input_path = "Mainboard_Example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Solderix Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../imports/">Imports</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OLED_Example/">OLED Display Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PWM_Example/">PWM Module Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Controller_Example/">Controller Examples</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Mainboard Examples</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#simple-movement-examples">Simple Movement Examples</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#rotate-in-one-direction">Rotate in one direction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rotate-in-both-directions">Rotate in both directions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#back-and-forth-example">Back-and-forth Example</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#preprogramed-patterns">Preprogramed Patterns</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#remote-controlled-vehicle-example">Remote Controlled Vehicle Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#additional-features-example">Additional Features Example</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#led-driver">LED Driver</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#buzzer">Buzzer</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Solderix Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Mainboard Examples</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mainboard-vehicle-examples">Mainboard Vehicle Examples</h1>
+<p>The mainboard is primarily used for vehicle controls. It has 7 built-in LED output pins (pin 7 includes a built-in LED), 2 DC motor drivers (each with 4 output pins), and two servo drivers. It also features an integrated buzzer, two QWIIC ports, and 2 power ports.</p>
+<p>To use the mainboard, a SolderBit needs to be inserted into the onboard slot.</p>
+<figure align="center">
+  <img src="../img/mainboard_solderbit.gif">
+</figure>
+
+<h2 id="simple-movement-examples">Simple Movement Examples</h2>
+<p>The mainboard can be used as a robotic vehicle that follows a preprogrammed movement pattern or responds to user input. To set it up, ensure the DC motors are connected correctly and the board is receiving power via the power cable.</p>
+<p>Once the DC motors are connected and oriented properly, the mainboard can be used as a vehicle using the <code>vehicle.move()</code> function.</p>
+<p><code>vehicle.move()</code> takes two mandatory arguments and one optional argument. The first two arguments set the speed for each direction, X and Y:</p>
+<figure align="center">
+  <img src="../img/mainboard_ort.png" style="width: 420px; height: auto;">
+</figure>
+
+<p>The X and Y arguments accept values between -500 and 500, where 0 means no movement, 500 means maximum speed in the positive direction, and -500 means maximum speed in the negative direction.</p>
+<p>Currently, values between -20 and 20 are considered a dead zone, so no motor output occurs within this range. This may change in future updates.</p>
+<hr />
+<h3 id="rotate-in-one-direction">Rotate in one direction</h3>
+<p>The following code demonstrates how to continuously rotate a vehicle in one direction at maximum speed.</p>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+    vehicle.move(500, 0)
+</code></pre>
+<hr />
+<h3 id="rotate-in-both-directions">Rotate in both directions</h3>
+<p>When preprogramming movement patterns with the vehicle module, the vehicle may need to maintain speed for a period before changing direction. Since the vehicle import filters inputs, a regular <code>sleep()</code> won’t work. To enforce a delay, use the third argument of <code>vehicle.move()</code>.</p>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+    &quot;&quot;&quot;
+    ***INCORRECT CODE***
+    vehicle.move(500, 0)
+    sleep(1000)             #Uses sleep to hold vehicle speed constant.
+    vehicle.move(-500, 0)
+    sleep(1000) 
+    &quot;&quot;&quot;
+
+    &quot;&quot;&quot; ***CORRECT CODE*** &quot;&quot;&quot;
+    vehicle.move(500, 0, 1000)
+    vehicle.move(-500, 0, 1000)
+</code></pre>
+<hr />
+<h3 id="back-and-forth-example">Back-and-forth Example</h3>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+    vehicle.move(0, 500, 1000)
+    vehicle.move(0, -500, 1000)
+</code></pre>
+<hr />
+<h3 id="preprogramed-patterns">Preprogramed Patterns</h3>
+<p>The best way to implement a preprogrammed pattern is by using a nested list.</p>
+<pre><code>from microbit import *
+import vehicle
+
+pattern = [
+    [500, 0, 1000],     # Rotate right
+    [-500, 0, 1000],    # Rotate left
+    [0, 500, 1000],     # Move forward
+    [0, -500, 1000],    # Move backward
+    [0, 0, 1000],       # Stop
+]
+
+while True:
+    for move in pattern:
+        vehicle.move(*move)
+        #vehicle.move(move[0], move[1], move[2]) #This is also valid
+</code></pre>
+<p>This isn’t the only way to create preprogrammed patterns. They can also be implemented line by line, as shown in the following example:</p>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+    vehicle.move(500, 0, 1000)  # Rotate right
+    vehicle.move(-500, 0, 1000) # Rotate left
+    vehicle.move(0, 500, 1000)  # Move forward
+    vehicle.move(, -500, 1000)  # Move backward
+    vehicle.move(0, 0, 1000)    # Stop
+</code></pre>
+<hr />
+<hr />
+<h2 id="remote-controlled-vehicle-example">Remote Controlled Vehicle Example</h2>
+<p>The most common way to use vehicles is with a remote controller. To enable this, flash the following code onto the SolderBit:</p>
+<pre><code>from microbit import *
+import radio
+import vehicle
+import srt as controller
+
+radio.config(group=8)
+radio.on()   
+
+vehicle.acceleration = 1.0
+vehicle.speed = 1.0
+
+_next_check = 0
+_check_period = 250
+
+while True:
+    data = controller.data_decode(radio.receive_bytes())
+
+    if _next_check &lt; running_time():
+        vehicle.move(0, 0)
+
+    if data == None:
+        continue
+
+    _next_check = running_time() + _check_period
+    vehicle.move(data[controller.JOY_X2], y = data[controller.JOY_Y1])
+</code></pre>
+<p>Make sure <code>radio.config(group=8)</code> is set to the same g group as on the controller.</p>
+<hr />
+<hr />
+<h2 id="additional-features-example">Additional Features Example</h2>
+<p>Additional features of the mainboard include:</p>
+<ul>
+<li>LED Outputs</li>
+<li>Servo Drivers</li>
+<li>Buzzer</li>
+</ul>
+<p>Servo drivers will be explained in the PWM Examples.</p>
+<hr />
+<h3 id="led-driver">LED Driver</h3>
+<p>The LED driver can be controlled using <code>vehicle.set_outputs()</code>, which accepts 7 arguments—one for each output:</p>
+<ul>
+<li>l0</li>
+<li>l1</li>
+<li>l2</li>
+<li>l3</li>
+<li>l4</li>
+<li>l5</li>
+<li>l6</li>
+<li>connected</li>
+</ul>
+<p>Following example will show how to blink a single LED output:</p>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+  vehicle.set_outputs(l0=1)
+  sleep(1000)
+  vehicle.set_outputs(l0=0)
+  sleep(1000)
+</code></pre>
+<hr />
+<h3 id="buzzer">Buzzer</h3>
+<p>Buzzer can be used by calling the <code>vehicle.horn()</code> function. Passing a 1 will turn the buzzer on, passing a 0 will turn it off.</p>
+<pre><code>from microbit import *
+import vehicle
+
+while True:
+  vehicle.horn(1)
+  sleep(1000)
+  vehicle.horn(0)
+  sleep(1000)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Controller_Example/" class="btn btn-neutral float-left" title="Controller Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../Controller_Example/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

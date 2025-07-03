@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>OLED Display Examples - Solderix Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "OLED Display Examples";
+        var mkdocs_page_input_path = "OLED_Example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Solderix Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../imports/">Imports</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">OLED Display Examples</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#hello-world">Hello World</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rotate-display">Rotate Display</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#invert-display">Invert Display</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#draw-shapes">Draw Shapes</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PWM_Example/">PWM Module Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Controller_Example/">Controller Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mainboard_Example/">Mainboard Examples</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Solderix Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">OLED Display Examples</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="organic-light-emmiting-diode-display">Organic Light-Emmiting Diode Display</h1>
+<p>A monochromatic graphical display used for drawing shapes and text. To use the OLED display with the Solderix platform, an Adapter Board is required. Make sure the pins of the OLED and Adapter Board are properly aligned.</p>
+<figure align="center">
+  <img src="../img/AdapterBoard.gif">
+</figure>
+
+<h2 id="hello-world">Hello World</h2>
+<pre><code>from microbit import *
+import oled
+
+oled.rotate(2)
+oled.text("Hello World", 0, 0)
+oled.show()
+</code></pre>
+<figure align="center">
+  <img src="../img/hello_world.png" style="width: 400px; height: auto;">
+</figure>
+
+<hr />
+<hr />
+<h2 id="rotate-display">Rotate Display</h2>
+<p>This example demonstrates how to rotate the display and explains each rotation.</p>
+<pre><code>from microbit import *
+import oled
+
+while True:
+    for rot in range(4):
+        oled.rotate(rot)
+        oled.text("Hello World", 0, 0)
+        oled.show()
+        sleep(250)
+</code></pre>
+<figure align="center">
+  <img src="../img/rotate1.png">
+</figure>
+
+<hr />
+<hr />
+<h2 id="invert-display">Invert Display</h2>
+<p>Displayed pixels can be inverted, turning all off pixels on and all on pixels off.</p>
+<pre><code>from microbit import *
+import oled
+
+oled.text("Hello World", 0, 0)
+oled.invert(0)
+oled.show()
+sleep(1000)
+oled.invert(1)
+</code></pre>
+<figure align="center">
+  <img src="../img/invert.png">
+</figure>
+
+<hr />
+<hr />
+<h2 id="draw-shapes">Draw Shapes</h2>
+<p>The OLED can also be used to draw shapes. Predefined shapes include:</p>
+<ul>
+<li>Line</li>
+<li>Rectangle</li>
+<li>Filled Rectangle</li>
+<li>Circle</li>
+<li>Filled Circle</li>
+</ul>
+<pre><code>from microbit import *
+import oled
+
+oled.rotate(2) # Set rotation to 0 degrees
+
+while True:
+    oled.fill(0) #Clear the display
+    for num in range(8):
+        oled.line(0, 0, 127, num*8, 1) # Draw lines
+        oled.show()
+        sleep(1)
+
+    oled.fill(0) #Clear the display
+    oled.rect(20,20,10,10, 1, False) # Draw empty rect
+    oled.show()
+    sleep(1000)
+
+    oled.fill(0) #Clear the display
+    oled.rect(30,30,20,20, 1, True) # Draw filled rect
+    oled.show()
+    sleep(1000)
+
+    oled.fill(0) #Clear the display
+    oled.circle(20,20,10, 1, False) # Draw empty circle
+    oled.show()
+    sleep(1000)
+
+    oled.fill(0) #Clear the display
+    oled.circle(30,30,20, 1, True) # Draw filled circle
+    oled.show()
+    sleep(1000)
+</code></pre>
+<figure align="center">
+  <img src="../img/oled_graphics.gif">
+</figure>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../imports/" class="btn btn-neutral float-left" title="Imports"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../PWM_Example/" class="btn btn-neutral float-right" title="PWM Module Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../imports/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../PWM_Example/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

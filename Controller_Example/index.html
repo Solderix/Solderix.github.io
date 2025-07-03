@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Controller Examples - Solderix Docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Controller Examples";
+        var mkdocs_page_input_path = "Controller_Example.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Solderix Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../imports/">Imports</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../OLED_Example/">OLED Display Examples</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../PWM_Example/">PWM Module Examples</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Controller Examples</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#connecting-the-controller-to-solderbit">Connecting the controller to Solderbit</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pro">PRO</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#srt">SRT</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reading-inputs-example">Reading Inputs Example</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transmitter-example">Transmitter Example</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pro_1">PRO</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#srt_1">SRT</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#one-player-pong-example">One Player Pong Example</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Mainboard_Example/">Mainboard Examples</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Solderix Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Controller Examples</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="remote-controller-examples">Remote Controller Examples</h1>
+<p>Remotes expand the input capabilities of the SolderBit. There are two versions of the Remote Controller:</p>
+<ul>
+<li>SRT: Simple remote transceiver with one joystick and two buttons.</li>
+<li>PRO: Advanced remote with two joysticks and nine additional buttons.</li>
+</ul>
+<figure align="center">
+  <img src="../img/remotes.png">
+</figure>
+
+<p>The two remotes use different imports for proper operation, but both are designed to be as similar as possible for better compatibility.</p>
+<p>One change is needed when switching between remotes: the import method. Use <code>import controller</code> for the PRO version, and <code>import srt as controller</code> for the SRT version.</p>
+<h2 id="connecting-the-controller-to-solderbit">Connecting the controller to Solderbit</h2>
+<p>To connect the SolderBit to the remote, insert the SolderBit into the dedicated slot. Then, flick the switch on the right side of the remote down to the ON position.</p>
+<h3 id="pro">PRO</h3>
+<figure align="center">
+  <img src="../img/connect_pro.gif">
+</figure>
+
+<h3 id="srt">SRT</h3>
+<figure align="center">
+  <img src="../img/connect_srt.gif" style="width: 420px; height: auto;">
+</figure>
+
+<hr />
+<hr />
+<h2 id="reading-inputs-example">Reading Inputs Example</h2>
+<div style="
+  border-left: 4px solid #00bfa5; 
+  border-radius: 4px; 
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: sans-serif;
+">
+  <div style="
+    background-color: #e0f7fa; 
+    padding: 8px 15px; 
+    font-weight: bold;
+  ">
+    Information
+  </div>
+  <div style="
+    background-color: #ffffff; 
+    padding: 10px 15px;
+  ">
+    All of the examples are written for the PRO version. To turn them into SRT version change 
+    <code>import controller</code> to <code>import srt as controller</code>.
+  </div>
+</div>
+<p><b></b></p>
+<p>Each input can be read individually:</p>
+<pre><code>from microbit import *
+import controller
+
+while True:
+    print(controller.read_input(controller.LEFT_BTN))
+    print(controller.read_input(controller.RIGHT_BTN)) 
+    print(controller.read_input(controller.JOY_X1))
+    print(controller.read_input(controller.JOY_Y1))
+    print(controller.read_input(controller.JOY_X2))
+    print(controller.read_input(controller.JOY_Y2))
+    ### and so on...
+    sleep(1000)
+</code></pre>
+<p>Alternatively, all inputs can be read at once, then selectively accessed from the returned list.</p>
+<pre><code>from microbit import *
+import controller
+
+while True:
+    data = controller.read_all_inputs()
+
+    #print out few values
+    print(data[controller.LEFT_LEFT_BTN], data[controller.LEFT_RIGHT_BTN], data[controller.LEFT_UP_BTN], data[controller.LEFT_DOWN_BTN])
+
+    #or print the entire list
+    print(data)
+
+    sleep(1000)
+</code></pre>
+<p>When transmitting data over the radio, it’s best to use the encoded method. This reduces the memory used by inputs by packing them into a bytearray:</p>
+<pre><code>from microbit import *
+import controller
+
+while True:
+  encoded_data = controller.read_encoded()
+
+  #Print out the bytearray
+  print(encoded_data)
+</code></pre>
+<p>Encoded data can be decoded </p>
+<hr />
+<hr />
+<h2 id="transmitter-example">Transmitter Example</h2>
+<p>This example shows how to turn the controller into a simple transmitter. It selects a radio channel, reads the button states from the controller inputs, and sends the data over the radio to any listeners.</p>
+<h3 id="pro_1">PRO</h3>
+<pre><code>from microbit import *
+import radio
+import controller
+
+radio.config(group=8)
+radio.on()   
+
+while True:
+    radio.send_bytes(controller.read_encoded())
+    sleep(50)
+</code></pre>
+<h3 id="srt_1">SRT</h3>
+<pre><code>from microbit import *
+import radio
+import srt as controller
+
+radio.config(group=8)
+radio.on()
+
+while True:
+    radio.send_bytes(controller.read_encoded())
+    sleep(50)
+</code></pre>
+<h2 id="one-player-pong-example">One Player Pong Example</h2>
+<p>This example requires the Controller PRO and Solderbit PRO to work.</p>
+<figure align="center">
+  <img src="../img/pong_pro.png">
+</figure>
+
+<pre><code>from machine import Pin, SPI
+from microbit import *
+import random
+import st7789
+import framebuf
+import controller
+
+width, height = 128, 64
+buffer = bytearray(width * height * 2)  # 2 bytes per pixel (RGB565)
+fb = framebuf.FrameBuffer(buffer, width, height, framebuf.RGB565)
+
+def config(rotation=0, buffer_size=0, options=0):
+    return st7789.ST7789(
+        SPI(2, baudrate=60_000_000, sck=Pin(18), mosi=Pin(14)),
+        128,
+        160,
+        reset=Pin(46, Pin.OUT),
+        cs=Pin(39, Pin.OUT),
+        dc=Pin(16, Pin.OUT),
+        backlight=Pin(47, Pin.OUT),
+        color_order=st7789.RGB,
+        rotation=rotation,
+        buffer_size = 64*64*2,
+        inversion=False)
+
+tft = config(1)
+tft.init()
+tft.fill(st7789.BLACK)
+
+left_score = 0
+right_score = 0
+
+player_one_pos = 28
+player_two_pos = 28
+player_length = 10
+player_speed = 10
+
+ball_x_pos = 62
+ball_y_pos = 30
+
+ball_x_vel = -3
+ball_y_vel = 3
+
+ball_steady = True
+steady_counter = 0
+
+def draw_setup():
+    fb.text(str(left_score), 28, 5)
+    fb.text(str(right_score), 95, 5)
+    fb.line(64, 0, 64, 63, st7789.WHITE)
+    for i in range(10):
+       fb.line(64, 4+(i*10), 64, 9+(i*10), st7789.BLACK)
+    return
+
+
+def draw_players():
+    for i in range(3):
+        fb.line(2+i, player_one_pos, 2+i, player_one_pos+player_length, st7789.WHITE)
+        fb.line(125+i, player_two_pos, 125+i, player_two_pos+player_length, st7789.WHITE)
+
+
+def draw_ball():
+    for i in range(4):
+        fb.line(ball_x_pos+i, ball_y_pos, ball_x_pos+i, ball_y_pos+3, st7789.WHITE)
+
+
+def move_player_one(inputs):
+    global player_one_pos 
+    global player_length
+    global player_speed
+
+    player_one_pos = player_one_pos + int(player_speed*(inputs[controller.JOY_Y1]/-700))
+
+    if player_one_pos &lt; 0:
+        player_one_pos = 0
+
+    if player_one_pos &gt; 64-player_length:
+        player_one_pos = 64-player_length
+
+def move_player_AI():
+    global player_two_pos 
+    global player_length
+    global player_speed
+
+    if ball_y_pos &gt; (player_two_pos-2) and (player_two_pos+player_length)&lt;ball_y_pos:
+        player_two_pos = player_two_pos + 3
+    elif ball_y_pos &lt; player_two_pos and (player_two_pos+player_length-2)&gt;ball_y_pos:
+        player_two_pos = player_two_pos - 3
+
+    if player_two_pos &lt; 0:
+        player_two_pos = 0
+
+    if player_two_pos &gt; 64-player_length:
+        player_two_pos = 64-player_length
+
+
+def move_ball():
+    global ball_x_pos
+    global ball_y_pos
+    global ball_x_vel
+    global ball_y_vel
+    global left_score
+    global right_score
+    global steady_counter
+
+    if steady_counter &lt; 40:
+        steady_counter = steady_counter + 1
+        gain = random.randint(1,5)
+        ball_x_vel = -(6-gain)
+        ball_y_vel = gain
+        return
+
+    ball_x_pos = ball_x_pos + ball_x_vel
+    ball_y_pos = ball_y_pos + ball_y_vel
+
+    if ball_x_pos &lt; 0:
+        steady_counter = 0
+        right_score = right_score + 1
+    if ball_x_pos &gt; 127:
+        steady_counter = 0
+        left_score = left_score + 1
+
+    if steady_counter == 0:
+        ball_y_pos = 30
+        ball_x_pos = 62
+
+    if ball_y_pos &lt; 0 or ball_y_pos &gt; 63:
+        ball_y_pos = ball_y_pos - ball_y_vel*2
+        ball_y_vel = -ball_y_vel
+
+def detect_colision():
+    global ball_x_pos
+    global ball_x_vel
+    global ball_y_pos
+    global ball_y_vel
+
+    gain = random.randint(1,5)
+
+    if ((ball_y_pos &gt; player_two_pos and ball_y_pos &lt; player_two_pos+player_length) or (((ball_y_pos+3) &gt; player_two_pos and (ball_y_pos+3) &lt; player_two_pos+player_length))) and ball_x_pos &gt;= 122:
+        ball_x_pos = ball_x_pos - ball_x_vel*2
+        ball_x_vel = -(6-gain)
+        ball_y_vel = int(-(ball_y_vel/ball_y_vel)) * (gain)
+
+    if ((ball_y_pos &gt; player_one_pos and ball_y_pos &lt; player_one_pos+player_length) or (((ball_y_pos+3) &gt; player_one_pos and (ball_y_pos+3) &lt; player_one_pos+player_length))) and ball_x_pos &lt;= 6:
+        ball_x_pos = ball_x_pos - ball_x_vel*2
+        ball_x_vel = (6-gain)
+        ball_y_vel = int(-(ball_y_vel/ball_y_vel)) * (gain)
+
+
+def play_state():
+    global left_score, right_score
+
+    inputs = controller.read_all_inputs()
+    detect_colision()
+
+    move_player_one(inputs)
+    move_player_AI()
+    move_ball()
+
+    draw_setup()
+    draw_players()
+    draw_ball()
+
+    if left_score == 12 or right_score == 12:
+        return 2
+
+    if pin2.read_digital() == False:
+        while pin2.read_digital() == False:
+            pass
+        left_score = 0
+        right_score = 1
+        return 2
+    return 1
+
+
+def start_state():
+    fb.text(&quot;Press start&quot;, 20, 20, st7789.WHITE)
+    fb.text(&quot;for a new game&quot;, 9, 30, st7789.WHITE)
+
+    if pin2.read_digital() == False:
+        while pin2.read_digital() == False:
+            pass
+        return 1
+    return 0
+
+
+def game_over_state():
+    global left_score, right_score
+    global player_one_pos, player_two_pos, player_length, player_speed
+    global ball_x_pos, ball_y_pos, ball_x_vel, ball_y_vel, ball_steady, steady_counter
+
+    if left_score &gt; right_score:
+       fb.text(&quot;You win!&quot;, 23, 20, st7789.WHITE)
+    else:
+       fb.text(&quot;Game over&quot;, 23, 20, st7789.WHITE)
+
+    sleep(2000)
+
+    left_score = 0
+    right_score = 0
+
+    player_one_pos = 28
+    player_two_pos = 28
+    player_length = 10
+    player_speed = 10
+
+    ball_x_pos = 62
+    ball_y_pos = 30
+
+    ball_x_vel = -3
+    ball_y_vel = 3
+
+    ball_steady = True
+    steady_counter = 0
+
+
+
+def state_machine(state):
+    fb.fill(st7789.BLACK)
+    out = state
+
+    if state == 0:
+        out = start_state()
+    elif state == 1:
+        out = play_state()
+    elif state == 2:
+        game_over_state()
+        out = 0
+
+    tft.rect(15, 31, width+4, height+2, st7789.WHITE)
+    tft.blit_buffer(buffer, 16, 32, width, height)
+    return out
+
+
+states = 0    
+while True:
+    states = state_machine(states)
+    sleep(5)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../PWM_Example/" class="btn btn-neutral float-left" title="PWM Module Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Mainboard_Example/" class="btn btn-neutral float-right" title="Mainboard Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../PWM_Example/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Mainboard_Example/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
